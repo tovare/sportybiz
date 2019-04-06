@@ -19,8 +19,9 @@
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-57DBGXX');</script>
-        <!-- End Google Tag Manager -->
-    </head>
+        <!-- End Google Tag Manager -->       
+
+</head>
 
 <body class="parallax-demo">
 <!-- Google Tag Manager (noscript) -->
@@ -114,20 +115,47 @@
                 <p>Please enter your email address to get an update
                     when we release.</p>
 
-                <form class="col s12" action="" method="GET">
+
+                 <form class="col s12" action="javascript:alert(grecaptcha.getResponse(widgetId1));">
+                     <input type="hidden" id="g-recaptcha-response" value="-1">
                     <div class="row">
                         <div class="input-field col s8">
                             <input id="email" type="email" class="validate">
                             <label for="email">Email</label>
                         </div>
                         <div class="input-field col s4">
-                            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                            <button class="g-recaptcha btn waves-effect waves-light" 
+                                type="submit" name="action">Submit
                                 <i class="material-icons right">send</i>
                             </button>
                         </div>
                     </div>
+                    <div class="row" id="html_element">
+                            This site is protected by reCAPTCHA and the Google
+                            <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+                            <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+                    </div>
                 </form>
-
+                <script src="https://www.google.com/recaptcha/api.js?render=6Ldmh5wUAAAAAJpYngYHM2ugP8xpU9KJR1CJyWXs&onload=onloadCallback"></script>
+                <script>
+                    var widgetId1;
+                    var onloadCallback = function() {
+/*
+                        var clientId = grecaptcha.render('html_element', {
+                            'sitekey' : '6Ldmh5wUAAAAAJpYngYHM2ugP8xpU9KJR1CJyWXs',
+                            'badge': 'inline',
+                            'size': 'invisible',
+                            'theme': 'light'
+                        });*/
+                        grecaptcha.ready(function() {
+                            grecaptcha.execute(clientId, {action: 'homepage'})
+                                .then(function(token) {
+                                     // add token value to form
+                                    document.getElementById('g-recaptcha-response').value = token;
+                                });
+                        });
+                    };
+                </script>
             </div>
         </div>
 
