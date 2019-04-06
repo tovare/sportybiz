@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,40 +7,41 @@
     <meta name="Turning the world into a playfull space, making fun happen anytime and everywhere">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified CSS -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <!-- Compiled and minified JavaScript -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-57DBGXX');</script>
-        <!-- End Google Tag Manager -->       
-
+        })(window,document,'script','dataLayer','GTM-57DBGXX');
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Ldmh5wUAAAAAJpYngYHM2ugP8xpU9KJR1CJyWXs&onload=onloadCallback"></script>
+    <script src="js/submit.js"></script>
 </head>
 
 <body class="parallax-demo">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-57DBGXX"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     
     <header>
         <nav class=" white darken-4">
             <div class="container">
                 <div class="nav-wrapper">
-                    <a href="index.html" class=" brand-logo black-text center"><img src="img/sportybiz2.png"></a>
+                    <a href="index.html" class=" brand-logo black-text center">
+                        <img src="img/sportybiz2.png"></a>
                     <ul class="right sidenav" id="nav-mobile">
                         <li class="hide-on-small-only"><a href="collapsible.html"><i
                                     class="material-icons">arrow_back</i></a></li>
                     </ul>
-                    <a class="sidenav-trigger" href="#" data-target='nav-mobile'><i class="material-icons">menu</i></a>
+                    <a class="sidenav-trigger" href="#" data-target='nav-mobile'><
+                        i class="material-icons">menu</i></a>
                 </div>
             </div>
         </nav>
@@ -109,18 +111,18 @@
             </div>
         </div>
         <div class="container">
-
             <div class="row">
                 <h2 class="headere">Sign up now</h2>
                 <p>Please enter your email address to get an update
                     when we release.</p>
 
-
-                 <form class="col s12" action="javascript:alert(grecaptcha.getResponse(widgetId1));">
-                     <input type="hidden" id="g-recaptcha-response" value="-1">
+                 <form class="col s12" id="emailform" method="POST" action="http://localhost:8080/store">
+                     <input type="hidden" id="g-recaptcha-response" name="token"  required>
+                     <input type="hidden" name="ok" value="https://sportybiz.eu/thankyou.html">
+                     <input type="hidden" name="failed" value="https://sportybiz.eu/denied.html">
                     <div class="row">
-                        <div class="input-field col s8">
-                            <input id="email" type="email" class="validate">
+                            <div class="input-field col s8">
+                            <input id="email" name="email" type="email" class="validate" required>
                             <label for="email">Email</label>
                         </div>
                         <div class="input-field col s4">
@@ -130,36 +132,17 @@
                             </button>
                         </div>
                     </div>
+                    <div class="row">
+                       Thank you for your interest.
+                    </div>
                     <div class="row" id="html_element">
                             This site is protected by reCAPTCHA and the Google
                             <a href="https://policies.google.com/privacy">Privacy Policy</a> and
                             <a href="https://policies.google.com/terms">Terms of Service</a> apply.
                     </div>
                 </form>
-                <script src="https://www.google.com/recaptcha/api.js?render=6Ldmh5wUAAAAAJpYngYHM2ugP8xpU9KJR1CJyWXs&onload=onloadCallback"></script>
-                <script>
-                    var widgetId1;
-                    var onloadCallback = function() {
-/*
-                        var clientId = grecaptcha.render('html_element', {
-                            'sitekey' : '6Ldmh5wUAAAAAJpYngYHM2ugP8xpU9KJR1CJyWXs',
-                            'badge': 'inline',
-                            'size': 'invisible',
-                            'theme': 'light'
-                        });*/
-                        grecaptcha.ready(function() {
-                            grecaptcha.execute(clientId, {action: 'homepage'})
-                                .then(function(token) {
-                                     // add token value to form
-                                    document.getElementById('g-recaptcha-response').value = token;
-                                });
-                        });
-                    };
-                </script>
             </div>
         </div>
-
-
     </main>
     <footer class="page-footer grey lighten-4">
         <div class="footer-copyright white darken-4 black-text">
@@ -169,16 +152,6 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var elems = document.querySelectorAll('.parallax');
-            var instances = M.Parallax.init(elems, null);
-        });
-    </script>
-
-
-
 </body>
 
 </html>
