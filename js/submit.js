@@ -1,6 +1,6 @@
 
 
-
+/*
 function addFormHandling(){
     let myform = document.getElementById("emailform")
     myform.addEventListener("submit", e => {
@@ -14,7 +14,7 @@ function addFormHandling(){
     })  
     return true
 }
-
+*/
 
 var onloadCallback = function() {
     grecaptcha.ready(function() {
