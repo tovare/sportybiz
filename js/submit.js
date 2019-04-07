@@ -24,6 +24,7 @@ var onloadCallback = function() {
             .then(function(token) {
                 // add token value to form
                 document.getElementById('g-recaptcha-response').value = token;
+                console.log("Token added:", token)
         });
     });
 };
