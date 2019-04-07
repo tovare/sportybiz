@@ -25,7 +25,12 @@ var onloadCallback = function() {
                 // add token value to form
                 document.getElementById('g-recaptcha-response').value = token;
                 console.log("Token added:", token)
-        });
+        }, function(reason) {
+            // rejection
+            console.log("Failed to get token:" , reason)
+          });
+        
+       // );
     });
 };
 
