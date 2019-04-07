@@ -7,6 +7,6 @@ img {
     filter: grayscale(70%);
   }
 
-  .grecaptcha-badge{
-    display: none;
-  }
+.grecaptcha-badge{
+  display: none;
+}
