@@ -1,6 +1,4 @@
-
-
-var onloadCallback = function () {
+window.onloadCallback = function () {
     grecaptcha.ready(function () {
         console.log("READY")
         grecaptcha.execute('6Ldmh5wUAAAAAJpYngYHM2ugP8xpU9KJR1CJyWXs',
@@ -16,11 +14,3 @@ var onloadCallback = function () {
 
     });
 };
-
-document.addEventListener('DOMContentLoaded', function () {
-    console.log("parallax")
-    var elems = document.querySelectorAll('.parallax');
-    M.Parallax.init(elems, null);
-    // addFormHandling()
-});
-

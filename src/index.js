@@ -4,3 +4,5 @@
 
 // Load simple counter
 import './simple-counter';
+import './startparallax';
+import './captchacallback';
