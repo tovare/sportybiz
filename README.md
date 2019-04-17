@@ -1,5 +1,6 @@
 # sportybiz
 
-Build using npm run build
+Build using `npm run build`
 
-Uses hybrids for some web components with webpack the webpack bundler.
+Uses [hybrids](https://github.com/hybridsjs/hybrids) for web components
+and webpack.
