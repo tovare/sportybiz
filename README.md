@@ -1,6 +1,6 @@
 # sportybiz
 
-Build using `npm run build`
+Uses [hybrids](https://github.com/hybridsjs/hybrids) for web components.
 
-Uses [hybrids](https://github.com/hybridsjs/hybrids) for web components
-and webpack.
+(Relies on http/2)
+
