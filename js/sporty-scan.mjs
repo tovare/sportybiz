@@ -1,8 +1,8 @@
 
 import { define, html, render } from 'https://unpkg.com/hybrids@2.0.2/src/index.js';
-import QrScanner from '/node_modules/qr-scanner/qr-scanner.min.js';
+import QrScanner from './qr-scanner.min.js';
 
-QrScanner.WORKER_PATH = '../node_modules/qr-scanner/qr-scanner-worker.min.js';
+QrScanner.WORKER_PATH = './qr-scanner-worker.min.js';
 
 var vid = document.createElement("VIDEO");
 vid.setAttribute("autoplay","true")
