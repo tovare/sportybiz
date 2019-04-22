@@ -12,6 +12,7 @@ var outputData = document.createElement("div");
 
 
 var video = document.createElement("video");
+video.style.width = "300px"
 var canvas = canvasElement.getContext("2d");
 
 
