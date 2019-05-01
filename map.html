@@ -33,11 +33,11 @@
 
         .mapboxgl-popup-content {
             text-align: center;
-            font-family: 'Open Sans', sans-serif;
+            /* font-family: 'Open Sans', sans-serif; */
         }
     </style>
 
-    <div id='map' style='width: 400px; height: 400px;'></div>
+    <div id='map' style='width: 800px; height: 800px;'></div>
     <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoidG92YXJlIiwiYSI6ImVjY2I3Yzg4YWMzNjk1ZmFmZjBiMmY2MTA1Mzk0ZmU1In0.yW1vaKEzgLJvtR4MqaDvfw';
         var map = new mapboxgl.Map({
@@ -57,8 +57,28 @@
                     coordinates: [10.659633, 59.950038]
                 },
                 properties: {
-                    title: 'Basketball 2x2',
-                    description: 'Tov Are og Nils er på banen, er der frem til 18.00'
+                    title: 'Basketball',
+                    description: 'Tov Are og Nils is on the court. Will stay until 18.00'
+                }
+            },{
+                type: 'Feature',
+                geometry: {
+                    type: 'Point',
+                    coordinates: [10.648633, 59.950038]
+                },
+                properties: {
+                    title: 'Basketball',
+                    description: 'Tov Are og Nils is on the court. Will stay until 18.00'
+                }
+            },,{
+                type: 'Feature',
+                geometry: {
+                    type: 'Point',
+                    coordinates: [10.658633, 59.951038]
+                },
+                properties: {
+                    title: 'Basketball',
+                    description: 'Tov Are og Nils is on the court. Will stay until 18.00'
                 }
             },
             ]
@@ -76,7 +96,7 @@
                 .setLngLat(marker.geometry.coordinates)
                 .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
                     .setHTML('<strong>' + marker.properties.title + '</strong><p>' + marker.properties.description + '</p>' +
-                      '<a class="btn waves-effect waves-light blue black-text" type="submit" >Kommer om 5 minutter  <i class="material-icons right">send</i><a/>'))
+                      '<button class="btn waves-effect waves-light blue ">Join now<i class="material-icons right">send</i> <button/>'))
                 .addTo(map);
 
         });
